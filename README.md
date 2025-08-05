@@ -1,4 +1,6 @@
  # CryptoInvestment - Frontend
+ 
+ ![React](https://img.shields.io/badge/React-18.x-61DAFB?logo=react)  ![Tailwind](https://img.shields.io/badge/TailwindCSS-3.x-38B2AC?logo=tailwindcss)  
 
 Aplicación web desarrollada en React.js que permite visualizar y consultar datos de criptomonedas en tiempo real.
 puedes visitar el proyecto completo desplegado en Azure:

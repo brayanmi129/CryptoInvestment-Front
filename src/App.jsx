@@ -10,6 +10,7 @@ function App() {
   const [searchTerm, setSearchTerm] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [selectedCrypto, setSelectedCrypto] = useState(null);
+  const [randomCryptos, setRandomCryptos] = useState([]);
 
   useEffect(() => {
     const fetchCryptoList = async () => {
@@ -22,6 +23,13 @@ function App() {
     };
     fetchCryptoList();
   }, []);
+
+  useEffect(() => {
+    if (allCryptos.length > 0) {
+      const shuffled = [...allCryptos].sort(() => Math.random() - 0.5).slice(0, 10);
+      setRandomCryptos(shuffled);
+    }
+  }, [allCryptos]);
 
   useEffect(() => {
     if (searchTerm.trim() === "") {
@@ -98,12 +106,9 @@ function App() {
       ) : (
         <div className="mt-6 w-full max-w-6xl">
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 mt-8">
-            {[...allCryptos]
-              .sort(() => Math.random() - 0.5)
-              .slice(0, 10)
-              .map((crypto) => (
-                <MiniCard key={crypto.id} crypto={crypto} onSelect={handleSelectCrypto} />
-              ))}
+            {randomCryptos.map((crypto) => (
+              <MiniCard key={crypto.id} crypto={crypto} onSelect={handleSelectCrypto} />
+            ))}
           </div>
         </div>
       )}

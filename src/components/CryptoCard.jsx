@@ -221,9 +221,6 @@ const CryptoCard = ({ crypto }) => {
                   <thead className="text-xs text-slate-400 uppercase bg-slate-700">
                     <tr>
                       <th scope="col" className="px-6 py-3">
-                        ID
-                      </th>
-                      <th scope="col" className="px-6 py-3">
                         Precio
                       </th>
                       <th scope="col" className="px-6 py-3">
@@ -240,7 +237,6 @@ const CryptoCard = ({ crypto }) => {
                         key={data.id}
                         className="border-b border-slate-700 hover:bg-slate-600 transition-colors duration-150"
                       >
-                        <td className="px-6 py-4">{data.id}</td>
                         <td className="px-6 py-4">
                           {new Intl.NumberFormat("es-CO", {
                             style: "currency",
